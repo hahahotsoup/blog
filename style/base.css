@@ -12454,29 +12454,6 @@
   background: var(--top-bar-bg-color);
   transition: transform 0.3s ease-in-out;
 }
-.header-widget .site-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-left: 0;
-  text-decoration: none;
-}
-.header-widget .site-brand-mark {
-  width: 37px;
-  height: 37px;
-}
-.header-widget .site-brand-name {
-  font-size: 19px;
-  letter-spacing: 1px;
-}
-.header-widget .site-brand-en {
-  align-self: flex-end;
-  margin: 0 0 7px -5px;
-  color: var(--second-text-color);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 1.2px;
-}
 .header-widget a {
   margin: 0 8px;
   font-weight: bold;
