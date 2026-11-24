@@ -1,330 +1,601 @@
 <!DOCTYPE html>
-<html class="appearance-dark" lang="zh-CN">
+<html lang="zh-CN">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>友链 - 热汤茶馆</title>
   <meta name="description" content="谨以此页记录下热汤的好朋友们">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://blog.hotsouprealm.top/images/favicon.ico">
-  <link rel="stylesheet" href="https://blog.hotsouprealm.top/style/common/bulma.css">
-  <link rel="stylesheet" href="https://blog.hotsouprealm.top/style/base.css">
-  <link rel="stylesheet" href="https://blog.hotsouprealm.top/style/common/helper.css">
-  <script src="https://blog.hotsouprealm.top/js/common.js"></script>
-  <link rel="stylesheet" href="https://blog.hotsouprealm.top/style/widget-post-list.css">
-  <meta name="generator" content="Hexo 7.3.0">
-  <meta name="description" content="谨以此页记录下热汤的好朋友们">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css">
   <meta name="generator" content="Hexo 7.3.0">
   <style>
+    /* 设计语言取自 https://hotsouprealm.top/ 的 :root / .page / .hero / h2 / .site-footer */
     :root {
-      --bg: #242933;
-      --bg-card: #2e3440;
-      --bg-card-hover: #353b4a;
-      --text: #d8dee9;
-      --text-muted: #9aafc4;
-      --accent: #88c0d0;
-      --accent2: #81a1c1;
-      --green: #a3be8c;
-      --red: #bf616a;
-      --yellow: #ebcb8b;
-      --purple: #b48ead;
-      --orange: #d08770;
-      --border: #3b4252;
-      --radius: 10px;
-      --shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+      --red: #c7201a;
+      --red-ink: #a3150f;
+      --ink: #24292e;
+      --ink-soft: #4f423c;
+      --muted: #6f625b;
+      --line: rgba(199, 32, 26, .2);
+      --line-soft: rgba(199, 32, 26, .12);
+      --paper: #ffffff;
+      --cream: #f8f4ef;
+      --footer: #fbf1ef;
+      --hero-red: #a52d35;
+      --hero-muted: #81756e;
+      --pol-paper: #fffaf5;
+      --pol-line: rgba(112, 92, 78, .16);
+      --pol-shadow: #e9ded5;
+      --pol-shadow-hover: #e6d9ce;
+      --sans: "Helvetica Neue", "PingFang SC", "Source Han Sans", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+      --serif: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", "SimSun", serif;
+      --kai: "LXGW WenKai", "霞鹜文楷", "KaiTi", "STKaiti", "Kaiti SC", serif;
+      --mono: "Cascadia Mono", "Cascadia Code", Consolas, "Courier New", monospace;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 24px 0;
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      background: var(--paper);
+      scroll-behavior: smooth;
     }
 
-    .friend-card {
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection { background: var(--red); color: #fff; }
+
+    img { max-width: 100%; }
+
+    a {
+      color: var(--red-ink);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(199, 32, 26, .5);
+    }
+
+    a:hover { color: var(--red); border-bottom-style: solid; }
+
+    .page {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    /* ===== 顶栏 ===== */
+    .topbar {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .topbar .page {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-size: 15px;
+      letter-spacing: .01em;
+      border-bottom: 0;
+      white-space: nowrap;
+    }
+
+    .brand:hover { color: var(--red); }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .topnav a {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.6;
+      border-bottom: 0;
+    }
+
+    .topnav a:hover {
+      color: var(--red);
+      border-bottom: 1px dashed rgba(199, 32, 26, .55);
+    }
+
+    /* ===== 顶部横幅 ===== */
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--red);
+    }
+
+    /* ===== 开场区 ===== */
+    .hero {
+      background: var(--cream);
+      padding: 32px 0 30px;
+      text-align: center;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
       gap: 18px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px 26px;
-      margin: 14px 0;
-      transition: background 0.3s, transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-      text-decoration: none;
+      margin: 0 0 8px;
+      color: var(--hero-muted);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      line-height: 1.7;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker-note {
+      flex: none;
+      font-size: 10.5px;
+      letter-spacing: .05em;
+      text-transform: none;
+      opacity: .8;
+      white-space: nowrap;
+    }
+
+    .hero-title {
+      margin: 0 0 14px;
+      color: var(--hero-red);
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 38px);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: .01em;
+    }
+
+    .hero-star {
+      display: inline-block;
+      margin-left: .16em;
+      font-size: .78em;
+      line-height: 1;
+      transform: translateY(-.04em);
+    }
+
+    .hero-note {
+      display: block;
+      margin: 0;
+      color: var(--hero-red);
+      font-family: var(--kai);
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: .04em;
+    }
+
+    /* ===== 正文 ===== */
+    main.page {
+      padding-top: 34px;
+      padding-bottom: 10px;
+    }
+
+    main.page h2 {
+      clear: both;
+      margin: 38px 0 14px;
+      padding-left: 11px;
+      border-left: 3px solid var(--red);
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .02em;
+    }
+
+    main.page h2:first-child { margin-top: 0; }
+
+    .section-note {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+    }
+
+    /* ===== 拍立得卡片 ===== */
+    .polaroid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 26px 20px;
+      margin: 20px 0 6px;
+      padding: 3px 7px 7px 3px;
+    }
+
+    .polaroid {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 9px 9px 0;
+      background: var(--pol-paper);
+      border: 1px solid var(--pol-line);
+      border-radius: 2px;
+      box-shadow: 7px 8px 0 var(--pol-shadow);
+      transform: rotate(-1deg);
+      transition: transform .35s ease, box-shadow .35s ease;
+      color: inherit;
+      overflow-wrap: anywhere;
+    }
+
+    .polaroid:nth-child(3n+2) { transform: rotate(1.1deg); }
+
+    .polaroid:nth-child(3n+3) { transform: rotate(-.5deg); }
+
+    a.polaroid:hover,
+    a.polaroid:focus-visible {
+      transform: rotate(0) translateY(-2px);
+      box-shadow: 8px 10px 0 var(--pol-shadow-hover);
+      border: 1px solid var(--pol-line);
       color: inherit;
     }
 
-    .friend-card:hover {
-      background: var(--bg-card-hover);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-      transform: translateY(-2px);
-      border-color: var(--accent);
+    .polaroid.is-static { cursor: default; }
+
+    .polaroid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 1px;
+      max-height: none;
+      opacity: 1;
     }
 
-    .friend-card-bilibili {
-      border-left: 3px solid #fb7299;
+    .pol-caption {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 2px 12px;
+      color: var(--muted);
     }
 
-    .friend-card-bilibili:hover {
-      border-color: #fb7299;
-    }
+    .pol-text { min-width: 0; }
 
-    .friend-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      border: 2px solid var(--border);
-      transition: border-color 0.3s;
-    }
-
-    .friend-card:hover .friend-avatar {
-      border-color: var(--accent);
-    }
-
-    .friend-card-bilibili:hover .friend-avatar {
-      border-color: #fb7299;
-    }
-
-    .friend-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .friend-info h2 {
-      margin: 0 0 2px 0;
-      font-size: 18px;
+    .pol-name {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 13.5px;
       font-weight: 600;
-      color: var(--text);
+      line-height: 1.45;
+      letter-spacing: .01em;
     }
 
-    .friend-info p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.5;
+    .pol-note {
+      display: block;
+      color: var(--muted);
+      font-size: 10.5px;
+      line-height: 1.65;
+      letter-spacing: .02em;
     }
 
-    .friend-card-bilibili .friend-info h2 {
-      color: #fb7299;
+    .pol-fav {
+      flex: none;
+      padding-top: 1px;
+      color: #b6a595;
+      font-size: 11px;
+      line-height: 1.4;
+      letter-spacing: .04em;
     }
 
-    .section-label {
-      color: var(--text-muted);
-      font-size: 15px;
-      font-weight: 600;
-      margin: 28px 0 8px;
-      letter-spacing: 1px;
-    }
+    .pol-bili { color: #fb7299; }
 
-    .section-label:first-child {
-      margin-top: 0;
-    }
-
-    /* 申请区卡片 */
+    /* ===== 本站信息 / 申请友链 ===== */
     .apply-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px 26px;
-      margin-top: 16px;
+      margin: 10px 0 0;
+      padding: 18px 22px 6px;
+      background: #fffdfb;
+      border: 1px solid rgba(199, 32, 26, .16);
+      border-radius: 3px;
+      overflow-wrap: anywhere;
     }
 
     .apply-card p {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 4px;
+      margin: 0 0 8px;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.85;
     }
 
-    .apply-card a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dashed var(--accent2);
+    /* ===== 评论 ===== */
+    .comments {
+      margin-top: 44px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line-soft);
     }
 
-    .apply-card a:hover {
-      color: var(--accent2);
+    /* ===== 页脚 ===== */
+    .site-footer {
+      margin-top: 64px;
+      padding: 30px 20px 32px;
+      border-top: 1px solid var(--line);
+      border-bottom: 4px solid var(--red);
+      background: var(--footer);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+      text-align: center;
     }
+
+    .site-footer p { margin: 0 0 4px; }
+
+    .site-footer a {
+      color: var(--red-ink);
+      border-bottom: 1px dashed rgba(199, 32, 26, .45);
+    }
+
+    .site-footer a:hover { color: var(--red); border-bottom-style: solid; }
+
+    .sns-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 0 0 14px;
+    }
+
+    .sns-container a {
+      display: inline-flex;
+      color: var(--red-ink);
+      font-size: 18px;
+      line-height: 1;
+      border-bottom: 0;
+    }
+
+    .sns-container a:hover { color: var(--red); border-bottom: 0; }
+
+    .copyright { color: var(--ink); letter-spacing: .02em; }
+
+    .made { font-size: 11.5px; }
+
+    .cc { margin-top: 8px; }
+
+    .cc a {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: var(--red-ink);
+      font-size: 15px;
+      letter-spacing: 1px;
+      border-bottom: 0;
+    }
+
+    .cc a:hover { color: var(--red); border-bottom: 0; }
 
     @media (max-width: 700px) {
-      .friend-card {
-        padding: 14px 16px;
-        gap: 12px;
+      .hero { padding: 26px 0 26px; }
+
+      .hero-kicker { font-size: 10px; letter-spacing: .13em; }
+
+      .hero-title { margin-bottom: 12px; }
+
+      .hero-note { font-size: 16.5px; }
+
+      main.page { padding-top: 26px; }
+
+      main.page h2 { margin-top: 30px; font-size: 18px; }
+
+      .polaroid-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 16px;
+        padding: 2px 4px 4px 2px;
       }
-      .friend-avatar {
-        width: 50px;
-        height: 50px;
-      }
-      .friend-info h2 {
-        font-size: 16px;
-      }
+
+      .pol-name { font-size: 12.5px; }
+
+      .apply-card { padding: 16px 18px 4px; }
+
+      .site-footer { margin-top: 52px; padding: 26px 18px 28px; }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title { font-size: 27px; }
+      .topnav { gap: 14px; }
+      .topnav a { font-size: 13px; }
+      .brand { font-size: 14px; }
     }
   </style>
 </head>
 
-<body class="is-flex is-flex-direction-column">
-  <header class="header-widget is-flex-shrink-0 is-hidden-mobile">
-    <div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height">
-      <section class="is-hidden-mobile is-flex-shrink-0">
-        <h2><a href="https://blog.hotsouprealm.top/">hahahotsoup's blog</a></h2>
-      </section>
-      <h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0">
-        <div class="is-full-height" id="postTopic">
-          <p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">友链</p>
-          <p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p>
-        </div>
-      </h3>
-      <aside class="is-flex-shrink-0">
-        <h3 class="is-inline-block"><a href="https://blog.hotsouprealm.top/">首页</a></h3>
-        <h3 class="is-inline-block"><a target="_blank" rel="noopener" href="https://hotsouprealm.top/">关于</a></h3>
-        <h3 class="is-inline-block"><a href="https://blog.hotsouprealm.top/archives">归档</a></h3>
-      </aside>
+<body id="top">
+  <header class="topbar">
+    <div class="page">
+      <a class="brand">热汤茶馆——概念界面</a>
+      <nav class="topnav">
+        <a href="https://blog.hotsouprealm.top/">返回首页</a>
+        <a href="https://hotsouprealm.top/">关于</a>
+        <a href="https://blog.hotsouprealm.top/archives">归档</a>
+      </nav>
     </div>
   </header>
-  <header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet">
-    <h3 class="is-inline-block"><a href="https://blog.hotsouprealm.top/">首页</a></h3>
-    <h3 class="is-inline-block"><a target="_blank" rel="noopener" href="https://hotsouprealm.top/">关于</a></h3>
-    <h3 class="is-inline-block"><a href="https://blog.hotsouprealm.top/archives">归档</a></h3>
-  </header>
-  <main>
-    <main class="container is-max-widescreen content section post-page pt-4 px-4">
-      <div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse">
-        <div class="column is-3 is-hidden-mobile is-hidden"></div>
-        <div class="column is-9">
-          <header class="my-4"></header>
-          <div style="text-align: center">
-            <h1 class="mt-0 mb-1 is-family-serif" id="postTitle">友链</h1>
-            <time class="has-text-grey" datetime="2025-07-29T03:54:39.593Z">愿这份友谊长存</time>
-          </div>
-          <article class="mt-2 post-content">
 
-            <p class="section-label">特别鸣谢</p>
-            <p style="color:var(--text-muted);font-size:14px;">此部分用于感谢帮助过热汤的人，排名不分先后</p>
+  <img class="banner" src="../images/banner.webp" alt="hahahotsoup 热汤茶馆" decoding="async">
 
-            <a href="https://cybernekomata.github.io/" class="friend-card" target="_blank">
-              <img src="https://blog.hotsouprealm.top/pic/nekomata.png" alt="Nekomata's blog!" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>Nekomata's blog</h2>
-                <p>作者：Cyber_Nekomata — 感谢为本站提供配色建议</p>
-              </div>
-            </a>
-
-            <div class="friend-card">
-              <img src="https://blog.hotsouprealm.top/pic/南曦.jpg" alt="南曦" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>南曦</h2>
-                <p>感谢对本站文章的支持</p>
-              </div>
-            </div>
-
-            <a href="https://space.bilibili.com/1987411833" class="friend-card friend-card-bilibili" target="_blank">
-              <img src="https://blog.hotsouprealm.top/pic/能量加油站.webp" alt="能量加油站" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>能量加油站</h2>
-                <p>bilibili官方 — 非常棒的负能量情绪帮助项目</p>
-              </div>
-            </a>
-
-            <p class="section-label">推荐链接</p>
-
-            <a href="https://hgo-hg.github.io/HgO-Hgs/web1.2.html" class="friend-card" target="_blank">
-              <img src="https://blog.hotsouprealm.top/pic/HgOHg.png" alt="HgO-Hgのwebsite" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>HgO-Hgのwebsite</h2>
-                <p>作者：HgO-Hg — warning：潜在的重金属中毒风险</p>
-              </div>
-            </a>
-
-            <a href="https://re.karlbaey.top/" class="friend-card" target="_blank">
-              <img src="https://blog.hotsouprealm.top/pic/karlbaey.jpg" alt="老卡尔的旧纸箱" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>老卡尔的旧纸箱</h2>
-                <p>作者：karlbaey — 这里存着卡尔白的过去、现在和未来</p>
-              </div>
-            </a>
-
-            <a href="https://fts427.codeberg.page/" class="friend-card" target="_blank">
-              <img src="https://blog.hotsouprealm.top/pic/huang.ico" alt="Huang's pages" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>Huang's pages</h2>
-                <p>Huang's website</p>
-              </div>
-            </a>
-
-            <a href="https://blog.laobinghu.top/" class="friend-card" target="_blank">
-              <img src="https://cdn.647382.xyz/avatar/avatar.jpg" alt="烙饼的碎碎念" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>烙饼的碎碎念</h2>
-              </div>
-            </a>
-
-            <a href="https://www.ginc.site" class="friend-card" target="_blank">
-              <img src="https://cdn.jsdmirror.com/gh/Ginc-c/Ginc/Ginc.png" alt="今夕何夕兮" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>今夕何夕兮</h2>
-                <p>今夕何夕，三千繁华，见此良人，皆虚梦一场</p>
-              </div>
-            </a>
-
-            <a href="https://mabbs.github.io" class="friend-card" target="_blank">
-              <img src="https://mabbs.github.io/favicon.ico" alt="Mayx的博客" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>Mayx的博客</h2>
-                <p>Mayx's Home Page</p>
-              </div>
-            </a>
-
-            <a href="https://www.luochancy.com" class="friend-card" target="_blank">
-              <img src="https://apac-r2.luochancy.com/img/icon.png" alt="I'm Luochancy" class="friend-avatar" />
-              <div class="friend-info">
-                <h2>I'm Luochancy</h2>
-                <p>这是个猫猫的博客喵～</p>
-              </div>
-            </a>
-
-            <p class="section-label">本站信息</p>
-            <div class="apply-card">
-              <p>站点名称：热汤茶馆</p>
-              <p>站点描述：茶凉了可以续，话断了可以接，这里是hahahotsoup的茶馆。</p>
-              <p>站点作者：hahahotsoup</p>
-              <p>作者头像：<a href="https://blog.hotsouprealm.top/images/hahahotsoup.webp" target="_blank">https://blog.hotsouprealm.top/images/hahahotsoup.webp</a></p>
-              <p>站点地址：<a href="https://blog.hotsouprealm.top" target="_blank">https://blog.hotsouprealm.top</a></p>
-            </div>
-
-            <p class="section-label">申请友链</p>
-            <div class="apply-card">
-              <p>任何人都可以在遵守要求的情况下申请本站友链。</p>
-              <p>需要提供：网站名、网站 URL、简介、站长、贵站 favicon。</p>
-              <p>通过底部图标获取站长信息。</p>
-            </div>
-
-          </article>
-          <article class="mt-6 comment-container">
-            <script src="https://giscus.app/client.js" data-repo="hahahotsoup/blog"
-              data-repo-id="R_kgDOOzSBAA" data-category="Announcements"
-              data-category-id="DIC_kwDOOzSBAM4Cufrm" data-mapping="pathname" data-strict="0"
-              data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
-              data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy"
-              crossorigin="anonymous" async>>
-            </script>
-          </article>
-        </div>
+  <div class="hero">
+    <div class="page">
+      <div class="hero-kicker">
+        <span>friends of hahahotsoup</span>
       </div>
-    </main>
-  </main>
-  <footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif">
-    <section class="sns-container"><a title="github" target="_blank" rel="noopener nofollow" href="https://github.com/hahahotsoup"><i class="ri-github-line"></i></a><a title="bilibili" target="_blank" rel="noopener nofollow" href="https://space.bilibili.com/1714437150"><i class="ri-bilibili-line"></i></a><a title="twitter" target="_blank" rel="noopener nofollow" href="https://twitter.com/hahahotsoup"><i class="ri-twitter-line"></i></a><a title="email" target="_blank" rel="noopener nofollow" href="mailto:hahahotsoup@foxmail.com"><i class="ri-mail-line"></i></a></section>
-    <p><span>Copyright &copy;</span><span> hahahotsoup</span></p>
-    <div class="is-flex is-justify-content-center is-flex-wrap-wrap">
-      <p>Powered by Hexo |&nbsp;</p>
-      <p class="is-flex is-justify-content-center"><a title="Hexo theme" target="_blank" rel="noopener" href="https://github.com/Haojen/hexo-theme-Claudia/blob/master/README-CN.md">Theme Claudia</a></p>
+      <h1 class="hero-title">友链<span class="hero-star">★</span></h1>
+      <time class="hero-note" datetime="2025-07-29T03:54:39.593Z">愿这份友谊长存</time>
     </div>
-    <p><a title="法律文书" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-hans"><i class="ri-creative-commons-line"></i><i class="ri-creative-commons-by-line"></i><i class="ri-creative-commons-nc-line"></i><i class="ri-creative-commons-sa-line"></i></a></p>
-  </footer>
+  </div>
+
+  <main class="page">
+    <h2>特别鸣谢</h2>
+    <p class="section-note">此部分用于感谢帮助过热汤的人，排名不分先后</p>
+
+    <div class="polaroid-grid">
+
+      <a href="https://crkcel.com/" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://avatars.githubusercontent.com/u/140730205?v=4" alt="crkel" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">crkel</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <div class="polaroid is-static">
+        <img src="https://blog.hotsouprealm.top/pic/南曦.jpg" alt="南曦" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">南曦</span>
+            <span class="pol-note">感谢对本站文章的支持</span>
+          </span>
+        </span>
+      </div>
+
+      <a href="https://space.bilibili.com/1987411833" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://blog.hotsouprealm.top/pic/能量加油站.webp" alt="能量加油站" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">能量加油站</span>
+            <span class="pol-note">bilibili官方 — 非常棒的负能量情绪帮助项目</span>
+          </span>
+          <span class="pol-fav pol-bili">bilibili</span>
+        </span>
+      </a>
+
+    </div>
+
+    <h2>推荐链接</h2>
+
+    <div class="polaroid-grid">
+
+      <a href="https://hgo-hg.github.io/HgO-Hgs/web1.2.html" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://blog.hotsouprealm.top/pic/HgOHg.png" alt="HgO-Hgのwebsite" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">HgO-Hgのwebsite</span>
+            <span class="pol-note">作者：HgO-Hg — warning：潜在的重金属中毒风险</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <a href="https://re.karlbaey.top/" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://blog.hotsouprealm.top/pic/karlbaey.jpg" alt="老卡尔的旧纸箱" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">老卡尔的旧纸箱</span>
+            <span class="pol-note">作者：karlbaey — 这里存着卡尔白的过去、现在和未来</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <a href="https://fts427.codeberg.page/" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://blog.hotsouprealm.top/pic/huang.ico" alt="Huang's pages" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">Huang's pages</span>
+            <span class="pol-note">Huang's website</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <a href="https://blog.laobinghu.top/" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://cdn.647382.xyz/avatar/avatar.jpg" alt="烙饼的碎碎念" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">烙饼的碎碎念</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <a href="https://www.ginc.site" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://cdn.jsdmirror.com/gh/Ginc-c/Ginc/Ginc.png" alt="今夕何夕兮" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">今夕何夕兮</span>
+            <span class="pol-note">今夕何夕，三千繁华，见此良人，皆虚梦一场</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <a href="https://mabbs.github.io" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://mabbs.github.io/favicon.ico" alt="Mayx的博客" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">Mayx的博客</span>
+            <span class="pol-note">Mayx's Home Page</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+      <a href="https://www.luochancy.com" class="polaroid" target="_blank" rel="noopener">
+        <img src="https://apac-r2.luochancy.com/img/icon.png" alt="I'm Luochancy" loading="lazy" decoding="async">
+        <span class="pol-caption">
+          <span class="pol-text">
+            <span class="pol-name">I'm Luochancy</span>
+            <span class="pol-note">这是个猫猫的博客喵～</span>
+          </span>
+          <span class="pol-fav">&#8599;</span>
+        </span>
+      </a>
+
+    </div>
+
+    <h2>本站信息</h2>
+    <div class="apply-card">
+      <p>站点名称：热汤茶馆</p>
+      <p>站点描述：茶凉了可以续，话断了可以接，这里是hahahotsoup的茶馆。</p>
+      <p>站点作者：hahahotsoup</p>
+      <p>作者头像：<a href="https://blog.hotsouprealm.top/images/hahahotsoup.webp" target="_blank" rel="noopener">https://blog.hotsouprealm.top/images/hahahotsoup.webp</a></p>
+      <p>站点地址：<a href="https://blog.hotsouprealm.top" target="_blank" rel="noopener">https://blog.hotsouprealm.top</a></p>
+    </div>
+
+    <h2>申请友链</h2>
+    <div class="apply-card">
+      <p>任何人都可以在遵守要求的情况下申请本站友链。</p>
+      <p>需要提供：网站名、网站 URL、简介、站长、贵站 favicon。</p>
+      <p>通过底部图标获取站长信息。</p>
+    </div>
+
+    <section class="comments">
+      <script src="https://giscus.app/client.js" data-repo="hahahotsoup/blog"
+        data-repo-id="R_kgDOOzSBAA" data-category="Announcements"
+        data-category-id="DIC_kwDOOzSBAM4Cufrm" data-mapping="pathname" data-strict="0"
+        data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
+        data-theme="light" data-lang="zh-CN" data-loading="lazy"
+        crossorigin="anonymous" async>
+      </script>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <section class="sns-container">
+      <a title="github" target="_blank" rel="noopener nofollow" href="https://github.com/hahahotsoup"><i class="ri-github-line"></i></a>
+      <a title="bilibili" target="_blank" rel="noopener nofollow" href="https://space.bilibili.com/1714437150"><i class="ri-bilibili-line"></i></a>
+      <a title="twitter" target="_blank" rel="noopener nofollow" href="https://twitter.com/hahahotsoup"><i class="ri-twitter-line"></i></a>
+      <a title="email" target="_blank" rel="noopener nofollow" href="mailto:hahahotsoup@foxmail.com"><i class="ri-mail-line"></i></a>
+    </section>
+    <p class="copyright">Copyright &copy; hahahotsoup</p>
+     </footer>
 </body>
 
 </html>
